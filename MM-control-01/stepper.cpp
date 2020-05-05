@@ -12,13 +12,15 @@
 #include "pins.h"
 #include "tmc2130.h"
 
+// Note: Selector steps are multiplied by 6.4 (8/1.25) since original thread has 8mm pitch and my is M8 1.25mm pitch
+
 int8_t filament_type[EXTRUDERS] = {-1, -1, -1, -1, -1};
 static bool isIdlerParked = false;
 
-static const int selector_steps_after_homing = -3700;
+static const int selector_steps_after_homing = -23680; //3700;
 static const int idler_steps_after_homing = -130;
 
-static const int selector_steps = 2790/4;
+static const int selector_steps = 17856/4; //2790/4;
 static const int idler_steps = 1420 / 4;    // 2 msteps = 180 / 4
 static const int idler_parking_steps = (idler_steps / 2) + 40;  // 40
 
@@ -250,7 +252,7 @@ int set_idler_direction(int _steps)
 		_steps = _steps * -1;
 		set_idler_dir_down();
 	}
-	else 
+	else
 	{
 		set_idler_dir_up();
 	}
@@ -258,6 +260,7 @@ int set_idler_direction(int _steps)
 }
 int set_selector_direction(int _steps)
 {
+	//_steps = -_steps;
 	if (_steps < 0)
 	{
 		_steps = _steps * -1;

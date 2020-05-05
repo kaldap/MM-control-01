@@ -1,6 +1,8 @@
 # MM-control-01
+** DO NOT USE WITH ORDINARY MMU, THERE ARE MODIFICATIONS FOR DIFFERENT SELECTOR STEPPER!!!
+
 MMU 3-axis stepper control
-[![Build Status](https://api.travis-ci.org/prusa3d/MM-control-01.svg?branch=master)](https://api.travis-ci.org/prusa3d/MM-control-01.svg?branch=master)
+
 ## Table of contents
 
 <!--ts-->
